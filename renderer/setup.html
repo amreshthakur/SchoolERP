@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>School ERP — Setup</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:32px; }
+    .wizard { width:100%; max-width:620px; }
+    .steps { display:flex; gap:8px; margin-bottom:24px; }
+    .step { flex:1; height:6px; border-radius:3px; background:#e2e8f0; }
+    .step.active { background:#2563eb; }
+    .field { margin-bottom:14px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  </style>
+</head>
+<body>
+  <div class="wizard card">
+    <h1>Welcome to School ERP</h1>
+    <p class="muted">Let's set up your school. You can change these later in Settings.</p>
+
+    <div class="steps">
+      <div class="step active" data-step="1"></div>
+      <div class="step" data-step="2"></div>
+      <div class="step" data-step="3"></div>
+    </div>
+
+    <form id="setupForm">
+      <div id="step1">
+        <div class="field">
+          <label>School Name *</label>
+          <input id="schoolName" required>
+        </div>
+        <div class="row">
+          <div class="field"><label>Phone</label><input id="phone"></div>
+          <div class="field"><label>Email</label><input id="email" type="email"></div>
+        </div>
+        <div class="field"><label>Address</label><input id="address"></div>
+        <div class="field"><label>Website</label><input id="website"></div>
+        <div class="field">
+          <label>School Logo</label>
+          <input id="logoFile" type="file" accept="image/*">
+        </div>
+      </div>
+
+      <div id="step2" hidden>
+        <div class="field">
+          <label>Academic Year *</label>
+          <input id="academicYear" placeholder="e.g. 2024-2025 or 2083/84" required>
+        </div>
+      </div>
+
+      <div id="step3" hidden>
+        <div class="field">
+          <label>Admin Username *</label>
+          <input id="adminUsername" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label>Admin Password * (min 6 characters)</label>
+          <input id="adminPassword" type="password" minlength="6" required>
+        </div>
+      </div>
+
+      <div class="actions mt">
+        <button type="button" id="prevBtn" class="btn secondary" hidden>Back</button>
+        <button type="button" id="nextBtn" class="btn">Next</button>
+        <button type="submit" id="finishBtn" class="btn" hidden>Finish Setup</button>
+      </div>
+      <p id="err" class="error mt" hidden></p>
+    </form>
+  </div>
+  <script src="js/setup.js"></script>
+</body>
+</html>

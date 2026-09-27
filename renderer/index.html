@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>School ERP</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- Login view -->
+<div id="loginView" class="login-wrap">
+  <div class="login-card card">
+    <img id="loginLogo" class="logo-lg" alt="">
+    <h2 id="loginSchoolName">School ERP</h2>
+    <p id="loginYear" class="muted"></p>
+    <form id="loginForm">
+      <div class="field">
+        <label>Username</label>
+        <input id="loginUsername" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn full" type="submit" id="loginBtn">Sign in</button>
+      <p id="loginErr" class="error mt" hidden></p>
+    </form>
+  </div>
+</div>
+
+<!-- App shell -->
+<div id="appShell" hidden>
+  <header class="topbar">
+    <div class="brand">
+      <img id="brandLogo" class="logo-sm" alt="">
+      <span id="brandName">School ERP</span>
+    </div>
+    <div class="year-badge" id="yearBadge"></div>
+    <div class="user-area">
+      <span id="userLabel" class="muted"></span>
+      <button class="btn secondary sm" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a class="nav-item" data-page="dashboard">📊 Dashboard</a>
+        <a class="nav-item" data-page="students">🎒 Students</a>
+        <a class="nav-item" data-page="teachers">👩‍🏫 Teachers</a>
+        <a class="nav-item" data-page="classes">🏫 Classes</a>
+        <a class="nav-item disabled">📅 Attendance <span class="badge-soon">Stage 3</span></a>
+        <a class="nav-item disabled">📝 Exams <span class="badge-soon">Stage 3</span></a>
+        <a class="nav-item disabled">🏅 Results <span class="badge-soon">Stage 3</span></a>
+        <a class="nav-item disabled">💰 Fees <span class="badge-soon">Stage 4</span></a>
+        <a class="nav-item disabled">🗓️ Timetable <span class="badge-soon">Stage 4</span></a>
+        <a class="nav-item disabled">📢 Notice Board <span class="badge-soon">Stage 4</span></a>
+        <a class="nav-item disabled">💾 Backup <span class="badge-soon">Stage 5</span></a>
+        <a class="nav-item" data-page="settings">⚙️ Settings</a>
+        <a class="nav-item" data-page="about">ℹ️ About</a>
+      </nav>
+    </aside>
+
+    <main class="content" id="pageContent"></main>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="js/store.js"></script>
+<script src="js/api.js"></script>
+<script src="js/router.js"></script>
+<script src="js/pages/dashboard.js"></script>
+<script src="js/pages/students.js"></script>
+<script src="js/pages/teachers.js"></script>
+<script src="js/pages/classes.js"></script>
+<script src="js/pages/settings.js"></script>
+<script src="js/pages/about.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
